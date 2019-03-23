@@ -1,0 +1,51 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+#app {
+    height: 100%;
+    width: 100%;
+}
+
+#outerContainer {
+    height: 100%;
+    width: 100%;
+    background-color: #456;
+    color: white;
+    display: flex;
+}
+
+#inputContainer, #outputContainer {
+    height: 100%;
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+}
+
+/* input */
+#inputContainer {
+    background-color: #324;
+}
+
+#input {
+    width: 80%;
+    min-height: 200px;
+    height: 70%;
+    background-color: #456;
+    border: none;
+}
+
+/* output */
+#outputContainer {
+    background-color: #432;
+}
+
+#output {
+    display: inline-block;
+    width: 80%;
+    min-height: 200px;
+    height: 70%;
+    background-color: #456;
+}
