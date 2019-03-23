@@ -1,4 +1,4 @@
-module github.com/radlinskii/monkey-online
+module github.com/radlinskii/interpreter-repl-online
 
 go 1.12
 
