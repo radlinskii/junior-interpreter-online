@@ -1,1 +1,1 @@
-web: interpreter-repl
+web: interpreter-repl-online

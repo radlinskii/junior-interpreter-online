@@ -13,7 +13,7 @@ const LikeButton = () => {
     const onClick = async () => {
         const reqBody = { 'input': inputState };
 
-        var res = await fetch('http://localhost:8080/interpret', {
+        var res = await fetch('/interpret', {
             method: 'POST',
             body: JSON.stringify(reqBody),
             headers: {
