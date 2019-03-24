@@ -30,6 +30,9 @@ const LikeButton = () => {
         setOutputState(json);
     }
 
+    const navbar = e('div', { id: 'navbar'}, 
+        e('h1', {}, 'Monkey interpreter')
+    );
     const input = e('textarea', { id: 'input', value: inputState, onChange }, null);
     const submit = e('input', { type: 'submit', onClick }, null);
     const inputContainer = e(
@@ -46,7 +49,8 @@ const LikeButton = () => {
     );
 
 
-    return e('div', { id: 'outerContainer' }, inputContainer, outputContainer);
+    return e('div', { id: 'outerContainer' }, navbar, 
+    e('div', {id: 'inoutContainer'}, inputContainer, outputContainer));
 }
 
 

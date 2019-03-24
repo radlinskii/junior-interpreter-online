@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 
 	"github.com/radlinskii/interpreter/evaluator"
 	"github.com/radlinskii/interpreter/lexer"
@@ -18,15 +17,15 @@ type RequestObject struct {
 }
 
 func main() {
-	port := os.Getenv("PORT")
-	if port == "" {
-		panic("Failed to load variable $PORT from environment")
-	}
+	// port := os.Getenv("PORT")
+	// if port == "" {
+	// 	panic("Failed to load variable $PORT from environment")
+	// }
 
 	http.Handle("/", http.FileServer(http.Dir("./static")))
 	http.HandleFunc("/interpret", handleInterpret)
 
-	http.ListenAndServe(":"+port, nil)
+	http.ListenAndServe(":8080", nil)
 }
 
 func handleInterpret(w http.ResponseWriter, r *http.Request) {
