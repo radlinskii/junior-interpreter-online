@@ -2,57 +2,91 @@
 
 const e = React.createElement;
 
-const LikeButton = () => {
-    const [inputState, setInputState] = React.useState('const foo = 123;');
-    const [outputState, setOutputState] = React.useState('123');
-
-    const onChange = (e) => {
-        setInputState(e.target.value);
+class InputOutput extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            inputState: 'const foo = 123;',
+            outputState: '123',
+            outputColor: 'white'
+        };
     }
 
-    const onClick = async () => {
-        const reqBody = { 'input': inputState };
-
-        var res = await fetch('/interpret', {
-            method: 'POST',
-            body: JSON.stringify(reqBody),
-            headers: {
-                'Content-Type': 'application/json',
-            },
+    setOutputState(newOutput) {
+        let color = 'white';
+        if (newOutput.substring(0,5) === 'ERROR'){
+            color = 'red';
+        }
+        this.setState({
+            outputState: newOutput,
+            outputColor: color
         })
+    }
 
-        try {
-            var json = await res.json();
-        } catch (e) {
-            console.error(e);
+    setInputState(newInput) {
+        this.setState({
+            inputState: newInput
+        })
+    }
+
+    render() {
+        
+        const onClick = async () => {
+            const reqBody = { 'input': this.state.inputState };
+    
+            var res = await fetch('/interpret', {
+                method: 'POST',
+                body: JSON.stringify(reqBody),
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+    
+            try {
+                var json = await res.json();
+            } catch (e) {
+                console.error(e);
+            }
+    
+            this.setOutputState(json);
+        }
+        
+        const submit = e('input', { type: 'submit', onClick }, null);
+        
+        const onChange = (e) => {
+            this.setInputState(e.target.value);
         }
 
-        setOutputState(json);
+        const input = e('textarea', { id: 'input', value: this.state.inputState, onChange }, null);
+
+        const inputContainer = e(
+            'div',
+            { id: 'inputContainer' },
+            'INPUT', e('br'), input, e('br'), submit
+        );
+
+        const output = e('div', {id: 'output', style: {color: this.state.outputColor} }, this.state.outputState);
+
+        const outputContainer = e(
+            'div',
+            { id: 'outputContainer' },
+            'OUTPUT', e('br'), output
+        );
+
+        return e('div', {id: 'inoutContainer'}, inputContainer, outputContainer);
     }
+}
+
+const MainContainer = () => {
+
 
     const navbar = e('div', { id: 'navbar'}, 
         e('h1', {}, 'Monkey interpreter')
     );
-    const input = e('textarea', { id: 'input', value: inputState, onChange }, null);
-    const submit = e('input', { type: 'submit', onClick }, null);
-    const inputContainer = e(
-        'div',
-        { id: 'inputContainer' },
-        'INPUT', e('br'), input, e('br'), submit
-    );
-
-    const output = e('div', { id: 'output' }, outputState);
-    const outputContainer = e(
-        'div',
-        { id: 'outputContainer' },
-        'OUTPUT', e('br'), output
-    );
-
 
     return e('div', { id: 'outerContainer' }, navbar, 
-    e('div', {id: 'inoutContainer'}, inputContainer, outputContainer));
+    e(InputOutput, {}, null));
 }
 
-
 const domContainer = document.querySelector('#app');
-ReactDOM.render(e(LikeButton), domContainer);
+ReactDOM.render(e(MainContainer), domContainer);
