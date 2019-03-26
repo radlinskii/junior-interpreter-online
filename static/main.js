@@ -2,13 +2,13 @@
 
 const e = React.createElement;
 
-const renderInput = (onChange, onClick, input) => {
+const renderInput = (onClick) => {
     const submit = e('input', {
         id: 'submit', value: 'Try it out!', type: 'submit', onClick,
     }, null);
-    const textarea = e('textarea', { id: 'input', value: input, onChange }, null);
+    const editor = e('div', { id: 'input' }, null);
 
-    return e('div', { id: 'inputContainer' }, 'INPUT', e('br'), textarea, e('br'), submit);
+    return e('div', { id: 'inputContainer' }, 'INPUT', e('br'), editor, e('br'), submit);
 };
 
 const renderOutput = (isErrorFound, content) => {
@@ -18,16 +18,11 @@ const renderOutput = (isErrorFound, content) => {
 };
 
 const InputOutput = () => {
-    const [inputState, setInputState] = React.useState('const foo = 123;');
     const [outputState, setOutputState] = React.useState('123');
     const [isErrorFoundState, setIsErrorFoundState] = React.useState(false);
 
-    const onChange = (event) => {
-        setInputState(event.target.value);
-    };
-
     const onClick = async () => {
-        const reqBody = { input: inputState };
+        const reqBody = { input: window.editor.getValue() };
 
         const res = await fetch('/interpret', {
             method: 'POST',
@@ -50,7 +45,7 @@ const InputOutput = () => {
         }
     };
 
-    return e('div', { id: 'inoutContainer' }, renderInput(onChange, onClick, inputState), renderOutput(isErrorFoundState, outputState));
+    return e('div', { id: 'inoutContainer' }, renderInput(onClick), renderOutput(isErrorFoundState, outputState));
 };
 
 const MainContainer = () => {
