@@ -2,6 +2,7 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
+    font-family: 'Rakkas';
 }
 
 #app {
@@ -12,40 +13,59 @@ html, body {
 #outerContainer {
     height: 100%;
     width: 100%;
-    background-color: #456;
+    background-color: #002918;
     color: white;
     display: flex;
+    flex-direction: column;
+}
+
+#navbar {
+    flex: 1;
+    height: 100%;
+    background-color: #508D73;
+    text-align: center;
+    font-family: 'Rakkas';
+    font-size: 1em;
+}
+
+#inoutContainer {
+    height: 100%;
+    width: 100%;
+    background-color: #30473D;
+    color: white;
+    display: flex;
+    flex: 15;
 }
 
 #inputContainer, #outputContainer {
     height: 100%;
     flex: 1;
-    padding: 10px;
+    padding: 4px;
     text-align: center;
 }
 
 /* input */
-#inputContainer {
-    background-color: #324;
-}
-
 #input {
-    width: 80%;
+    width: 100%;
     min-height: 200px;
     height: 70%;
-    background-color: #456;
+    color: white;
+    background-color: #051F14;
     border: none;
+    font-family: 'Fira Code', monospace;
+}
+
+#submit {
+    background-color: white;
 }
 
 /* output */
-#outputContainer {
-    background-color: #432;
-}
 
 #output {
     display: inline-block;
-    width: 80%;
+    width: 100%;
     min-height: 200px;
     height: 70%;
-    background-color: #456;
+    background-color: #051F14;
+    font-family: 'Fira Code', monospace;
 }
