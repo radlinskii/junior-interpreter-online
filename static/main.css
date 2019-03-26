@@ -55,6 +55,10 @@ html, body {
     font-family: 'Fira Code', monospace;
 }
 
+#submit {
+    background-color: white;
+}
+
 /* output */
 
 #output {
