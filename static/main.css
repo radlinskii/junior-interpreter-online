@@ -63,6 +63,7 @@ html, body {
 /* output */
 
 #output {
+    white-space: pre;
     display: inline-block;
     width: 100%;
     min-height: 200px;
