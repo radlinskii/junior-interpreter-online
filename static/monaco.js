@@ -10,30 +10,64 @@ require(['vs/editor/editor.main'], () => {
         tokenizer: {
             root: [
                 [/const/, 'const-keyword'],
-                [/\[notice.*/, 'custom-notice'],
-                [/\[info.*/, 'custom-info'],
-                [/\[[a-zA-Z 0-9:]+\]/, 'custom-date'],
+
+                { include: '@whitespace' },
+            ],
+
+            comment: [
+                [/[^/*]+/, 'comment'],
+                [/\/\*/, 'comment', '@push'],
+                ['\\*/', 'comment', '@pop'],
+                [/[/*]/, 'comment'],
+            ],
+
+            whitespace: [
+                [/[ \t\r\n]+/, 'white'],
+                [/\/\*/, 'comment', '@comment'],
+                [/\/\/.*$/, 'comment'],
             ],
         },
     });
 
     monaco.editor.defineTheme('myCoolTheme', {
         base: 'vs-dark',
-        inherit: false,
+        inherit: true,
         rules: [
             { token: 'const-keyword', foreground: 'ff32ff' },
-            { token: 'custom-error', foreground: 'ff0000', fontStyle: 'bold' },
-            { token: 'custom-notice', foreground: 'FFA500' },
-            { token: 'custom-date', foreground: '008800' },
+            { token: 'comment', foreground: '999999', fontStyle: 'italic' },
         ],
     });
 
+    const placeholder = `const chooseBigger = fun(x,y) {
+    if (x > y) {
+        return x;
+    }
+
+    return y;
+};
+
+const max = fun(arr) {
+    const findMax = fun(arr, max) {
+        if (len(arr) == 0) {
+            return max;
+        }
+        return findMax(rest(arr), chooseBigger(first(arr), max));
+    };
+    return findMax(arr, -99999999);
+};
+
+max([1,2,43,5,21,123]); // Try it out!
+`;
+
     window.editor = monaco.editor.create(document.getElementById('input'), {
         theme: 'myCoolTheme',
-        value: 'const foo = 123;\n',
+        value: placeholder,
         language: 'myCustomLanguage',
         minimap: {
             enabled: false,
         },
+        fontSize: 14,
+        fontFamily: 'Fira Code',
+        scrollBeyondLastLine: false,
     });
 });
