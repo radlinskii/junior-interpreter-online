@@ -10,8 +10,20 @@ require(['vs/editor/editor.main'], () => {
         tokenizer: {
             root: [
                 [/const/, 'const-keyword'],
+                [/if/, 'if-keyword'],
+                [/else/, 'else-keyword'],
+                [/return/, 'return-keyword'],
+                [/fun/, 'fun-keyword'],
+                [/[0-9]+/, 'integer'],
+                [/".*"/, 'string'],
 
                 { include: '@whitespace' },
+                { include: '@bool' },
+            ],
+
+            bool: [
+                [/true/, 'boolean'],
+                [/false/, 'boolean']
             ],
 
             comment: [
@@ -33,7 +45,13 @@ require(['vs/editor/editor.main'], () => {
         base: 'vs-dark',
         inherit: true,
         rules: [
-            { token: 'const-keyword', foreground: 'ff32ff' },
+            { token: 'const-keyword', foreground: '35D23F' },
+            { token: 'if-keyword', foreground: '3584B2' },
+            { token: 'else-keyword', foreground: '3584B2' },
+            { token: 'return-keyword', foreground: '3584B2' },
+            { token: 'fun-keyword', foreground: '3584B2' },
+            { token: 'integer', foreground: 'FFCE91' },
+            { token: 'boolean', foreground: '35D23F' },
             { token: 'comment', foreground: '999999', fontStyle: 'italic' },
         ],
     });
