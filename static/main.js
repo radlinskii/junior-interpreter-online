@@ -56,7 +56,7 @@ const navbar = () => {
     const docsLink = e('a', { id: 'docsLink', href: 'documentation.html' }, 'Docs');
 
     const version = e('span', { id: 'version' }, 'v1.0.1');
-    const title =  e('h1', {}, 'Monkey interpreter online ', version);
+    const title =  e('h1', {}, 'Junior interpreter online ', version);
 
     return e('div', { id: 'navbar' }, title, docsLink, githubLink);
 };
