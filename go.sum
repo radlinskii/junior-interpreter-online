@@ -1,6 +1,2 @@
-github.com/radlinskii/interpreter v0.0.0-20190317122744-34d42c693138 h1:DpXGFOOeYzw3YXfw7dVCxTXPHUbYrucBx7Xl36yhG0g=
-github.com/radlinskii/interpreter v0.0.0-20190317122744-34d42c693138/go.mod h1:cWRe52/4o4BXvgBecVC1+MkkA/eNREaeXUuNVwn0svI=
-github.com/radlinskii/interpreter v0.0.0-20190323134957-56708550b240 h1:wE0r7feEKsPCvqNujtvIrNYmFkrHW2WXHeZlp8RuLkQ=
-github.com/radlinskii/interpreter v0.0.0-20190323134957-56708550b240/go.mod h1:cWRe52/4o4BXvgBecVC1+MkkA/eNREaeXUuNVwn0svI=
-github.com/radlinskii/interpreter v0.0.0-20190326144057-20195d8e4608 h1:Yxhyy2o973b4hnwgpknflE14fS3cpNZudpV6mw5a00M=
-github.com/radlinskii/interpreter v0.0.0-20190326144057-20195d8e4608/go.mod h1:cWRe52/4o4BXvgBecVC1+MkkA/eNREaeXUuNVwn0svI=
+github.com/radlinskii/interpreter v1.0.1 h1:CjV25TOdd/TXTtwxfJ/b2wys3VMYroowiWWCQggm2P8=
+github.com/radlinskii/interpreter v1.0.1/go.mod h1:cWRe52/4o4BXvgBecVC1+MkkA/eNREaeXUuNVwn0svI=
