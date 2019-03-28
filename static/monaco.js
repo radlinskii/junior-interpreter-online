@@ -111,5 +111,6 @@ print(123);
         fontSize: 14,
         fontFamily: 'Fira Code',
         scrollBeyondLastLine: false,
+        automaticLayout: true,
     });
 });

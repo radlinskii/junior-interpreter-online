@@ -4,11 +4,11 @@ const e = React.createElement;
 
 const renderInput = (onClick) => {
     const submit = e('input', {
-        id: 'submit', value: 'Try it out!', type: 'submit', onClick,
+        id: 'submit', value: 'Run', type: 'submit', onClick: onClick,
     }, null);
     const editor = e('div', { id: 'input' }, null);
 
-    return e('div', { id: 'inputContainer' }, 'INPUT', e('br'), editor, e('br'), submit);
+    return e('div', { id: 'inputContainer' }, 'INPUT', submit, e('br'), editor, e('br'));
 };
 
 const renderOutput = (isErrorFound, content) => {
@@ -18,7 +18,7 @@ const renderOutput = (isErrorFound, content) => {
 };
 
 const InputOutput = () => {
-    const [outputState, setOutputState] = React.useState('123');
+    const [outputState, setOutputState] = React.useState('');
     const [isErrorFoundState, setIsErrorFoundState] = React.useState(false);
 
     const onClick = async () => {
@@ -48,11 +48,19 @@ const InputOutput = () => {
     return e('div', { id: 'inoutContainer' }, renderInput(onClick), renderOutput(isErrorFoundState, outputState));
 };
 
-const MainContainer = () => {
-    const navbar = e('div', { id: 'navbar' },
-        e('h1', {}, 'Monkey interpreter'));
+const navbar = () => {
+    const githubImg = e('img', { id: 'githubLogo', alt: 'github repository link', src: 'assets/github.png'}, null);
+    const githubLink = e('a', { href: 'https://github.com/radlinskii/interpreter' }, githubImg);
+    const docsLink = e('a', { id: 'docsLink', href: 'documentation.html' }, 'Docs');
 
-    return e('div', { id: 'outerContainer' }, navbar, e(InputOutput, {}, null));
+    const title =  e('h1', {}, 'Monkey interpreter online');
+
+    return e('div', { id: 'navbar' }, title, docsLink, githubLink);
+};
+
+const MainContainer = () => {
+
+    return e('div', { id: 'outerContainer' }, navbar(), e(InputOutput, {}, null));
 };
 
 const domContainer = document.querySelector('#app');

@@ -2,7 +2,8 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: 'Rakkas';
+    font-size: 16px;
+    font-family: 'Rakkas', serif;
 }
 
 #app {
@@ -23,9 +24,29 @@ html, body {
     flex: 1;
     height: 100%;
     background-color: #508D73;
-    text-align: center;
-    font-family: 'Rakkas';
-    font-size: 1em;
+    text-align: left;
+    padding: 20px 20px 15px 20px;
+    font-family: 'Rakkas', serif;
+    font-size: 1rem;
+    display: flex;
+}
+
+#githubLogo {
+    flex: 1;
+    height: 2.5rem;
+    margin: 5px;
+}
+
+#docsLink {
+    flex: 1;
+    font-size: 32px;
+    text-decoration: none;
+    color: black;
+}
+
+#navbar h1 {
+    margin: 0;
+    flex: 11;
 }
 
 #inoutContainer {
@@ -35,14 +56,23 @@ html, body {
     color: white;
     display: flex;
     flex: 15;
+    flex-wrap: wrap;
 }
 
 #inputContainer, #outputContainer {
     height: 100%;
-    flex: 1;
     padding: 4px;
     text-align: center;
     box-sizing: border-box;
+}
+
+#inputContainer {
+    flex: 7;
+    min-width: 400px;
+}
+
+#outputContainer {
+    flex: 5;
 }
 
 /* input */
@@ -50,15 +80,17 @@ html, body {
     text-align: left;
     width: 100%;
     min-height: 200px;
-    height: 70%;
-    color: white;
+    height: 90%;
     background-color: #051F14;
-    border: none;
     font-family: 'Fira Code', monospace;
 }
 
 #submit {
     background-color: white;
+    float: right;
+    font-size: 1rem;
+    line-height: 1rem;
+    border-color:#999;
 }
 
 /* output */
@@ -69,7 +101,8 @@ html, body {
     display: inline-block;
     width: 100%;
     min-height: 200px;
-    height: 70%;
+    min-width: 200px;
+    height: 90%;
     background-color: #051F14;
     font-family: 'Fira Code', monospace;
 }
