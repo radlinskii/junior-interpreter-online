@@ -7,14 +7,16 @@ const renderInput = (onClick) => {
         id: 'submit', value: 'Run', type: 'submit', onClick: onClick,
     }, null);
     const editor = e('div', { id: 'input' }, null);
+    const inputUpperWrapper = e('div', {id: 'inputUpperWrapper'}, 'INPUT', submit);
 
-    return e('div', { id: 'inputContainer' }, 'INPUT', submit, e('br'), editor, e('br'));
+    return e('div', { id: 'inputContainer' }, inputUpperWrapper, editor);
 };
 
 const renderOutput = (isErrorFound, content) => {
     const output = e('div', { id: 'output', style: { color: isErrorFound ? 'red' : 'white' } }, content);
+    const outputUpperWrapper = e('div', {id: 'outputUpperWrapper'}, 'OUTPUT');
 
-    return e('div', { id: 'outputContainer' }, 'OUTPUT', e('br'), output);
+    return e('div', { id: 'outputContainer' }, outputUpperWrapper, output);
 };
 
 const InputOutput = () => {

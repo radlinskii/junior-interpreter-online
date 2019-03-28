@@ -33,7 +33,7 @@ html, body {
 
 #githubLogo {
     flex: 1;
-    height: 2.5rem;
+    height: 2.2rem;
     margin: 5px;
 }
 
@@ -66,21 +66,24 @@ html, body {
     box-sizing: border-box;
 }
 
+/* input */
 #inputContainer {
     flex: 7;
+    display: flex;
+    flex-direction: column;
     min-width: 400px;
 }
 
-#outputContainer {
-    flex: 5;
+.inputUpperWrapper {
+    flex: 1;
 }
 
-/* input */
 #input {
+    flex: 11;
     text-align: left;
     width: 100%;
     min-height: 200px;
-    height: 90%;
+    height: 100%;
     background-color: #051F14;
     font-family: 'Fira Code', monospace;
 }
@@ -95,7 +98,20 @@ html, body {
 
 /* output */
 
+#outputContainer {
+    flex: 5;
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+}
+
+.inputUpperWrapper {
+    flex: 1;
+}
+
+
 #output {
+    flex: 11;
     text-align: left;
     white-space: pre;
     display: inline-block;
