@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
 	"os"
 	"strings"
@@ -27,7 +28,7 @@ func main() {
 	http.Handle("/", http.FileServer(http.Dir("./static")))
 	http.HandleFunc("/interpret", handleInterpret)
 
-	http.ListenAndServe(":"+port, nil)
+	fmt.Println(http.ListenAndServe(":"+port, nil))
 }
 
 func handleInterpret(w http.ResponseWriter, r *http.Request) {
@@ -65,10 +66,14 @@ func handleInterpret(w http.ResponseWriter, r *http.Request) {
 		response = evaluator.EvalProgram(program, env)
 	}
 
-	json, err := json.Marshal(response)
-	if err != nil {
-		w.Write([]byte(err.Error()))
+	if res, err := json.Marshal(response); err != nil {
+		_, err = w.Write([]byte(err.Error()))
+	} else {
+		_, err = w.Write(res)
 	}
 
-	w.Write(json)
+	if err != nil {
+		log.Printf("Write failed: %v", err)
+	}
+
 }
