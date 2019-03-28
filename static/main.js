@@ -55,7 +55,8 @@ const navbar = () => {
     const githubLink = e('a', { href: 'https://github.com/radlinskii/interpreter' }, githubImg);
     const docsLink = e('a', { id: 'docsLink', href: 'documentation.html' }, 'Docs');
 
-    const title =  e('h1', {}, 'Monkey interpreter online');
+    const version = e('span', { id: 'version' }, 'v1.0.1');
+    const title =  e('h1', {}, 'Monkey interpreter online ', version);
 
     return e('div', { id: 'navbar' }, title, docsLink, githubLink);
 };

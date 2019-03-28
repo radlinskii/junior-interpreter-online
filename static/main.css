@@ -14,16 +14,17 @@ html, body {
 #outerContainer {
     height: 100%;
     width: 100%;
-    background-color: #002918;
+    background-color: #508D73;
     color: white;
     display: flex;
     flex-direction: column;
+    padding: 4px;
+    box-sizing: border-box;
 }
 
 #navbar {
     flex: 1;
     height: 100%;
-    background-color: #508D73;
     text-align: left;
     padding: 20px 20px 15px 20px;
     font-family: 'Rakkas', serif;
@@ -47,6 +48,13 @@ html, body {
 #navbar h1 {
     margin: 0;
     flex: 11;
+}
+
+#version {
+    font-size: 1rem;
+    color: #dddddd;
+    font-family: 'Fira Code', monospace;
+    font-weight: 100;
 }
 
 #inoutContainer {
@@ -74,8 +82,8 @@ html, body {
     min-width: 400px;
 }
 
-.inputUpperWrapper {
-    flex: 1;
+#inputUpperWrapper {
+
 }
 
 #input {
@@ -93,6 +101,7 @@ html, body {
     float: right;
     font-size: 1rem;
     line-height: 1rem;
+    font-family: 'Fira Code', monospace;
     border-color:#999;
 }
 
@@ -105,8 +114,8 @@ html, body {
     padding-left: 0;
 }
 
-.inputUpperWrapper {
-    flex: 1;
+#outputUpperWrapper {
+
 }
 
 
