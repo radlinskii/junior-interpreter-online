@@ -57,13 +57,7 @@ func handleInterpret(w http.ResponseWriter, r *http.Request) {
 		}
 	} else {
 		env := object.NewEnvironment()
-		evaluated := evaluator.Eval(program, env)
-
-		if evaluated != nil {
-			response = evaluated.Inspect()
-		} else {
-			response = "null"
-		}
+		response = evaluator.EvalProgram(program, env)
 	}
 
 	json, err := json.Marshal(response)

@@ -42,10 +42,12 @@ html, body {
     flex: 1;
     padding: 4px;
     text-align: center;
+    box-sizing: border-box;
 }
 
 /* input */
 #input {
+    text-align: left;
     width: 100%;
     min-height: 200px;
     height: 70%;
@@ -62,6 +64,8 @@ html, body {
 /* output */
 
 #output {
+    text-align: left;
+    white-space: pre;
     display: inline-block;
     width: 100%;
     min-height: 200px;
