@@ -97,6 +97,7 @@ max([1,2,43,5,21,123]); // Try it out!
         },
         fontSize: 14,
         fontFamily: 'Fira Code',
+        fontLigatures: true,
         scrollBeyondLastLine: false,
         automaticLayout: true,
     });
