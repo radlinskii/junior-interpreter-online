@@ -85,20 +85,7 @@ const max = fun(arr) {
     return findMax(arr, -99999999);
 };
 
-// max([1,2,43,5,21,123]); // Try it out!
-
-/*
-    testing highlighter
-*/
-const foo = [1,32,3,54,-2,43];
-print(foo);
-print(max(foo));
-print(true);
-print("true");
-print(123);
-
-
-// TODO: delete this code after review!
+max([1,2,43,5,21,123]); // Try it out!
 `;
 
     window.editor = monaco.editor.create(document.getElementById('input'), {
@@ -110,6 +97,8 @@ print(123);
         },
         fontSize: 14,
         fontFamily: 'Fira Code',
+        fontLigatures: true,
         scrollBeyondLastLine: false,
+        automaticLayout: true,
     });
 });
