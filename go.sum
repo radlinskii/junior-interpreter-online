@@ -4,3 +4,5 @@ github.com/radlinskii/interpreter v0.0.0-20190323134957-56708550b240 h1:wE0r7feE
 github.com/radlinskii/interpreter v0.0.0-20190323134957-56708550b240/go.mod h1:cWRe52/4o4BXvgBecVC1+MkkA/eNREaeXUuNVwn0svI=
 github.com/radlinskii/interpreter v0.0.0-20190326144057-20195d8e4608 h1:Yxhyy2o973b4hnwgpknflE14fS3cpNZudpV6mw5a00M=
 github.com/radlinskii/interpreter v0.0.0-20190326144057-20195d8e4608/go.mod h1:cWRe52/4o4BXvgBecVC1+MkkA/eNREaeXUuNVwn0svI=
+github.com/radlinskii/interpreter v0.0.0-20190328121342-6a82235bb621 h1:eNsUyk2SSHpXLXMpCC+kjbXm4I63HHz6k0RgMm/43Kk=
+github.com/radlinskii/interpreter v0.0.0-20190328121342-6a82235bb621/go.mod h1:cWRe52/4o4BXvgBecVC1+MkkA/eNREaeXUuNVwn0svI=

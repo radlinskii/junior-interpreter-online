@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"strings"
 
 	"github.com/radlinskii/interpreter/evaluator"
 	"github.com/radlinskii/interpreter/lexer"
@@ -53,6 +54,10 @@ func handleInterpret(w http.ResponseWriter, r *http.Request) {
 
 	if len(p.Errors()) != 0 {
 		for _, msg := range p.Errors() {
+			if strings.HasPrefix(msg, "FATAL") {
+				response += msg + "\n"
+				break
+			}
 			response += "ERROR: " + msg + "\n"
 		}
 	} else {
