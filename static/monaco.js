@@ -57,7 +57,7 @@ require(['vs/editor/editor.main'], () => {
 
             { token: 'invalid', foreground: 'ff0000' },
             { token: 'identifier', foreground: '3baaaa' },
-            { token: 'keyword', foreground: '3584B2' },
+            { token: 'keyword', foreground: '009FE2' },
             { token: 'builtin', foreground: '35d4fc', fontStyle: 'italic' },
             { token: 'integer', foreground: 'FFCE91' },
             { token: 'boolean', foreground: '35D23F' },
