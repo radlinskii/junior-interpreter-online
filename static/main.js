@@ -34,16 +34,31 @@ const InputOutput = () => {
             },
         });
 
-        try {
-            const json = await res.json();
 
-            setOutputState(json);
-            setIsErrorFoundState(json.startsWith('ERROR'));
-        } catch (err) {
-            console.error(err);
+        if (res.status === 200){
+            try {
+                const json = await res.json();
 
-            setOutputState(err);
-            setIsErrorFoundState(true);
+                setOutputState(json);
+                setIsErrorFoundState(json.startsWith('ERROR'));
+            } catch (err) {
+                console.error(err);
+
+                setOutputState(err);
+                setIsErrorFoundState(true);
+            }
+        } else {
+            try {
+                const text = await res.text();
+
+                setOutputState(text);
+                setIsErrorFoundState(true);
+            } catch (err) {
+                console.error(err);
+
+                setOutputState(err);
+                setIsErrorFoundState(true);
+            }
         }
     };
 
@@ -53,9 +68,9 @@ const InputOutput = () => {
 const navbar = () => {
     const githubImg = e('img', { id: 'githubLogo', alt: 'github repository link', src: 'assets/github.png'}, null);
     const githubLink = e('a', { href: 'https://github.com/radlinskii/interpreter' }, githubImg);
-    const docsLink = e('a', { id: 'docsLink', href: 'documentation.html' }, 'Docs');
+    const docsLink = e('a', { id: 'docsLink', href: 'https://github.com/radlinskii/junior-interpreter#junior-language-specification' }, 'Docs');
 
-    const version = e('span', { id: 'version' }, 'v1.0.1');
+    const version = e('span', { id: 'version' }, 'v1.0.4');
     const title =  e('h1', {}, 'Junior interpreter online ', version);
 
     return e('div', { id: 'navbar' }, title, docsLink, githubLink);
