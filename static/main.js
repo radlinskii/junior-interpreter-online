@@ -53,9 +53,9 @@ const InputOutput = () => {
 const navbar = () => {
     const githubImg = e('img', { id: 'githubLogo', alt: 'github repository link', src: 'assets/github.png'}, null);
     const githubLink = e('a', { href: 'https://github.com/radlinskii/interpreter' }, githubImg);
-    const docsLink = e('a', { id: 'docsLink', href: 'documentation.html' }, 'Docs');
+    const docsLink = e('a', { id: 'docsLink', href: 'https://github.com/radlinskii/junior-interpreter#junior-language-specification' }, 'Docs');
 
-    const version = e('span', { id: 'version' }, 'v1.0.1');
+    const version = e('span', { id: 'version' }, 'v1.0.4');
     const title =  e('h1', {}, 'Junior interpreter online ', version);
 
     return e('div', { id: 'navbar' }, title, docsLink, githubLink);
