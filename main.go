@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"os"
 	"strings"
+	"time"
 
 	"github.com/radlinskii/interpreter/evaluator"
 	"github.com/radlinskii/interpreter/lexer"
@@ -26,7 +27,7 @@ func main() {
 	}
 
 	http.Handle("/", http.FileServer(http.Dir("./static")))
-	http.HandleFunc("/interpret", handleInterpret)
+	http.Handle("/interpret", http.TimeoutHandler(http.HandlerFunc(handleInterpret), 3*time.Second, "ERROR: Evaluation timeout"))
 
 	fmt.Println(http.ListenAndServe(":"+port, nil))
 }

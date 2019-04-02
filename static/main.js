@@ -34,16 +34,31 @@ const InputOutput = () => {
             },
         });
 
-        try {
-            const json = await res.json();
 
-            setOutputState(json);
-            setIsErrorFoundState(json.startsWith('ERROR'));
-        } catch (err) {
-            console.error(err);
+        if (res.status === 200){
+            try {
+                const json = await res.json();
 
-            setOutputState(err);
-            setIsErrorFoundState(true);
+                setOutputState(json);
+                setIsErrorFoundState(json.startsWith('ERROR'));
+            } catch (err) {
+                console.error(err);
+
+                setOutputState(err);
+                setIsErrorFoundState(true);
+            }
+        } else {
+            try {
+                const text = await res.text();
+
+                setOutputState(text);
+                setIsErrorFoundState(true);
+            } catch (err) {
+                console.error(err);
+
+                setOutputState(err);
+                setIsErrorFoundState(true);
+            }
         }
     };
 
