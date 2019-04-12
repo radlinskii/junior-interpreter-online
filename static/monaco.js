@@ -71,18 +71,22 @@ require(['vs/editor/editor.main'], () => {
         print(x, ">", y);
         return x;
     }
+    print(y, ">", x);
 
     return y;
 };
+
 
 const max = fun(arr) {
     const findMax = fun(arr, max) {
         if (len(arr) == 0) {
             return max;
         }
+        
         return findMax(rest(arr), chooseBigger(first(arr), max));
     };
-    return findMax(arr, -99999999);
+    
+    return findMax(rest(arr), first(arr));
 };
 
 max([1,2,43,5,21,123]); // Try it out!
