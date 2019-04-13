@@ -1,8 +1,6 @@
 'use strict';
 
-require.config({
-    waitSeconds: 200,
-});
+require.config({ paths: { 'vs': './vs' }});
 
 // eslint-disable-next-line import/no-dynamic-require
 require(['vs/editor/editor.main'], () => {
