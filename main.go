@@ -81,9 +81,7 @@ func handleInterpret(w http.ResponseWriter, r *http.Request) {
 
 }
 
-
-
-// UseGZip uses middleware for compressing response using gzip algorithm.
+// UseCache adds cache-control header.
 func UseCache(h http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Add("Cache-Control", "max-age=31536000")
