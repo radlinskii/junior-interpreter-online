@@ -1,5 +1,7 @@
 'use strict';
 
+require.config({ paths: { 'vs': './vs' }});
+
 // eslint-disable-next-line import/no-dynamic-require
 require(['vs/editor/editor.main'], () => {
     monaco.languages.register({
