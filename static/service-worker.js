@@ -8,7 +8,6 @@ const urlsToCache = [
     '/index.html',
     'assets/fonts/Rakkas.woff2',
     'assets/fonts/FiraCode-Regular.woff2',
-    'assets/fonts/FiraCode-Bold.woff2',
     'assets/fonts/FiraCode-Light.woff2',
     '/assets/github.png',
     '/assets/favicon/favicon-16x16.png',
