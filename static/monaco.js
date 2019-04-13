@@ -1,5 +1,9 @@
 'use strict';
 
+require.config({
+    waitSeconds: 200,
+});
+
 // eslint-disable-next-line import/no-dynamic-require
 require(['vs/editor/editor.main'], () => {
     monaco.languages.register({
