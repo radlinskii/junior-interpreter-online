@@ -62,26 +62,50 @@ body {
     flex: 1;
     height: 100%;
     text-align: left;
-    padding: 20px 20px 15px 20px;
+    padding: 4px 4px 8px;
     font-family: 'Rakkas', serif;
     font-size: 1rem;
-    display: flex;
 }
 
-#githubLogo {
-    flex: 1;
-    height: 2.2rem;
-    margin: 5px;
+@media (min-width: 580px) {
+    #navbar  {
+        padding: 20px 20px 15px;
+    }
+}
+
+@media (min-width: 580px) {
+    #navbar {
+        display: flex;
+        flex-wrap: wrap;
+    }
 }
 
 #docsLink {
-    flex: 1;
-    font-size: 32px;
     text-decoration: none;
     color: black;
+    display: block;
 }
 
-#navbar h1 {
+#docsLink h1 {
+    flex: 1;
+    font-size: 1.8rem;
+    line-height: 1.8rem;
+    text-decoration: underline;
+    color: black;
+    margin: 0;
+    text-align: right;
+}
+
+@media (min-width: 580px) {
+    #docsLink h1 {
+        text-align: left;
+    }
+}
+
+#title {
+    text-wrap: avoid;
+    font-size: 1.8rem;
+    line-height: 1.8rem;
     margin: 0;
     flex: 11;
 }
@@ -102,6 +126,8 @@ body {
     display: flex;
     flex: 15;
     flex-wrap: wrap;
+    padding-bottom: 8px;
+    box-sizing: border-box;
 }
 
 #inputContainer, #outputContainer {
@@ -113,14 +139,10 @@ body {
 
 /* input */
 #inputContainer {
-    flex: 7;
+    flex: 1;
     display: flex;
     flex-direction: column;
-    min-width: 300px;
-}
-
-#inputUpperWrapper {
-
+    min-width: 200px;
 }
 
 #input {
@@ -144,7 +166,7 @@ body {
 /* output */
 
 #outputContainer {
-    flex: 5;
+    flex: 1;
     display: flex;
     flex-direction: column;
     padding-left: 0;
@@ -168,3 +190,17 @@ body {
 #output::-webkit-scrollbar {
     width: 0 !important;
 }
+
+/* disabled github logo
+#footer {
+    margin: 0 auto;
+}
+
+#githubLink {
+    display: inline-block;
+}
+
+#githubLogo {
+    height: 2.2rem;
+}
+*/
