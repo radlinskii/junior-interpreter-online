@@ -66,28 +66,35 @@ const InputOutput = () => {
 };
 
 const navbar = () => {
-    const githubImg = e('img', {id: 'githubLogo', alt: 'github repository link', src: 'assets/github.png'}, null);
-    const githubLink = e('a', {
-        href: 'https://github.com/radlinskii/interpreter',
-        target: '_blank',
-        rel: 'nofollow noreferrer'
-    }, githubImg);
+    const docsHeader = e('h1', {}, 'Documentation');
     const docsLink = e('a', {
         id: 'docsLink',
         href: 'https://github.com/radlinskii/junior-interpreter#junior-language-specification',
         target: '_blank',
         rel: 'nofollow noreferrer'
-    }, 'Docs');
+    }, docsHeader);
 
-    const version = e('span', {id: 'version'}, 'v1.0.4');
-    const title = e('h1', {}, 'Junior interpreter online ', version);
+    const version = e('span', {id: 'version'}, 'v1.0.5');
+    const title = e('h1', { id: 'title'}, 'Junior interpreter online ', version);
 
-    return e('div', {id: 'navbar'}, title, docsLink, githubLink);
+    return e('div', {id: 'navbar'}, title, docsLink);
+};
+
+const footer = () => {
+    const githubImg = e('img', { id: 'githubLogo', alt: 'github repository link', src: 'assets/github.png' }, null);
+    const githubLink = e('a', {
+        id: 'githubLink',
+        href: 'https://github.com/radlinskii/interpreter',
+        target: '_blank',
+        rel: 'nofollow noreferrer'
+    }, githubImg);
+
+    return e('div', { id: 'footer' }, githubLink);
 };
 
 const MainContainer = () => {
 
-    return e('div', {id: 'outerContainer'}, navbar(), e(InputOutput, {}, null));
+    return e('div', {id: 'outerContainer'}, navbar(), e(InputOutput, {}, null)/*, footer()*/); // disabled link to github
 };
 
 const domContainer = document.querySelector('#app');
