@@ -51,7 +51,7 @@ body {
 #outerContainer {
     min-height: 100%;
     width: 100%;
-    background-color: #508D73;
+    background-color: burlywood;
     color: rgb(0, 0, 0);
     display: flex;
     flex-direction: column;
@@ -121,8 +121,8 @@ body {
 #inoutContainer {
     min-height: 100%;
     width: 100%;
-    background-color: #30473D;
-    color: white;
+    background-color: rgb(231, 148, 93);
+    color: black;
     display: flex;
     flex: 15;
     flex-wrap: wrap;
@@ -153,7 +153,7 @@ body {
     text-align: left;
     width: 100%;
     min-height: 400px;
-    background-color: #051F14;
+    background-color: rgb(143, 96, 52);
     font-family: 'Fira Code', monospace;
 }
 
@@ -185,7 +185,7 @@ body {
     width: 100%;
     min-height: 400px;
     min-width: 200px;
-    background-color: #051F14;
+    background-color: rgb(43, 43, 40);
     font-family: 'Fira Code', monospace;
     overflow: scroll;
     overflow: -moz-scrollbars-none;
