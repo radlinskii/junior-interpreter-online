@@ -1,13 +1,10 @@
 package handler
 
 import (
-	"compress/gzip"
 	"encoding/json"
 	"fmt"
-	"io"
 	"log"
 	"net/http"
-	"os"
 	"strings"
 	"time"
 
@@ -23,53 +20,51 @@ type RequestObject struct {
 }
 
 func InterpreterHandler(w http.ResponseWriter, r *http.Request) {
-	return http.TimeoutHandler(http.HandlerFunc(createInterpreterHandlerFunction(w, r)), 3*time.Second, "ERROR: Evaluation timeout")
+	return http.TimeoutHandler(http.HandlerFunc(handleInterpret), 3*time.Second, "ERROR: Evaluation timeout")
 }
 
-func createInterpreterHandlerFunction(w http.ResponseWriter, r *http.Request) {
-	return func () {
-		if r.Method != http.MethodPost {
-			http.NotFoundHandler()
-			return
-		}
-		w.Header().Set("Content-Type", "application/json")
+func handleInterpret(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodPost {
+		http.NotFoundHandler()
+		return
+	}
+	w.Header().Set("Content-Type", "application/json")
 
-		var reqObject RequestObject
+	var reqObject RequestObject
 
-		decoder := json.NewDecoder(r.Body)
-		err := decoder.Decode(&reqObject)
-		if err != nil {
-			fmt.Println(err)
-		}
+	decoder := json.NewDecoder(r.Body)
+	err := decoder.Decode(&reqObject)
+	if err != nil {
+		fmt.Println(err)
+	}
 
-		input := string(reqObject.Val)
-		l := lexer.New(input)
-		p := parser.New(l)
-		program := p.ParseProgram()
+	input := string(reqObject.Val)
+	l := lexer.New(input)
+	p := parser.New(l)
+	program := p.ParseProgram()
 
-		var response string
+	var response string
 
-		if len(p.Errors()) != 0 {
-			for _, msg := range p.Errors() {
-				if strings.HasPrefix(msg, "FATAL") {
-					response += msg + "\n"
-					break
-				}
-				response += "ERROR: " + msg + "\n"
+	if len(p.Errors()) != 0 {
+		for _, msg := range p.Errors() {
+			if strings.HasPrefix(msg, "FATAL") {
+				response += msg + "\n"
+				break
 			}
-		} else {
-			env := object.NewEnvironment()
-			response = evaluator.EvalProgram(program, env)
+			response += "ERROR: " + msg + "\n"
 		}
+	} else {
+		env := object.NewEnvironment()
+		response = evaluator.EvalProgram(program, env)
+	}
 
-		if res, err := json.Marshal(response); err != nil {
-			_, err = w.Write([]byte(err.Error()))
-		} else {
-			_, err = w.Write(res)
-		}
+	if res, err := json.Marshal(response); err != nil {
+		_, err = w.Write([]byte(err.Error()))
+	} else {
+		_, err = w.Write(res)
+	}
 
-		if err != nil {
-			log.Printf("Write failed: %v", err)
-		}
+	if err != nil {
+		log.Printf("Write failed: %v", err)
 	}
 }
