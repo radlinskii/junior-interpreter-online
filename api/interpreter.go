@@ -20,10 +20,6 @@ type RequestObject struct {
 }
 
 func InterpreterHandler(w http.ResponseWriter, r *http.Request) {
-	return http.TimeoutHandler(http.HandlerFunc(handleInterpret), 3*time.Second, "ERROR: Evaluation timeout")
-}
-
-func handleInterpret(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		http.NotFoundHandler()
 		return
