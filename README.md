@@ -1,10 +1,10 @@
 # Junior interpreter online
 
-[online Junior programming language playground](https://junior-interpreter-online.herokuapp.com/)
+[online Junior programming language playground](https://junior-interpreter-online.vercel.app)
 
 ## What is it
 
-It's a simple Golang application that evaluates code of **Junior Programming Language** in the [Junior's Interpreter](https://github.com/radlinskii/junior-interpreter) and prints the result.
+It's a simple Web application that evaluates code of **Junior Programming Language** in the [Junior's Interpreter](https://github.com/radlinskii/junior-interpreter) and prints the result.
 
 It uses [Monaco](https://microsoft.github.io/monaco-editor/index.html) as its editor.
 
