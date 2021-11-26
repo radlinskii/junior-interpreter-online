@@ -5,6 +5,6 @@ import (
   "net/http"
 )
 
-func Handler(w http.ResponseWriter, r *http.Request) {
+func InterpreterHandler(w http.ResponseWriter, r *http.Request) {
   fmt.Fprintf(w, "<h1>Interpret route!</h1>")
 }
