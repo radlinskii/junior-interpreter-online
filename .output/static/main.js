@@ -13,7 +13,7 @@ const renderInput = (onClick) => {
 };
 
 const renderOutput = (isErrorFound, content) => {
-    const output = e('div', {id: 'output', style: {color: isErrorFound ? 'red' : 'white'}}, content);
+    const output = e('div', {id: 'output', style: {color: isErrorFound ? 'red' : 'white'}}, `${isErrorFound ? 'ERROR: ' : ''}${content}`);
     const outputUpperWrapper = e('div', {id: 'outputUpperWrapper'}, 'OUTPUT');
 
     return e('div', {id: 'outputContainer'}, outputUpperWrapper, output);
@@ -26,14 +26,13 @@ const InputOutput = () => {
     const onClick = async () => {
         const reqBody = {input: window.editor.getValue()};
 
-        const res = await fetch('/interpret', {
+        const res = await fetch('/interpreter', {
             method: 'POST',
             body: JSON.stringify(reqBody),
             headers: {
                 'Content-Type': 'application/json',
             },
         });
-
 
         if (res.status === 200) {
             try {
@@ -81,10 +80,10 @@ const navbar = () => {
 };
 
 const footer = () => {
-    const githubImg = e('img', { id: 'githubLogo', alt: 'github repository link', src: 'assets/github.png' }, null);
+    const githubImg = e('img', { id: 'githubLogo', alt: 'github repository link', src: './assets/github.png' }, null);
     const githubLink = e('a', {
         id: 'githubLink',
-        href: 'https://github.com/radlinskii/interpreter',
+        href: 'https://github.com/radlinskii/junior-interpreter-online',
         target: '_blank',
         rel: 'nofollow noreferrer'
     }, githubImg);
@@ -92,10 +91,7 @@ const footer = () => {
     return e('div', { id: 'footer' }, githubLink);
 };
 
-const MainContainer = () => {
-
-    return e('div', {id: 'outerContainer'}, navbar(), e(InputOutput, {}, null)/*, footer()*/); // disabled link to github
-};
+const MainContainer = () => e('div', {id: 'outerContainer'}, navbar(), e(InputOutput, {}, null), footer());
 
 const domContainer = document.querySelector('#app');
 ReactDOM.render(e(MainContainer), domContainer);
