@@ -26,7 +26,7 @@ const InputOutput = () => {
     const onClick = async () => {
         const reqBody = {input: window.editor.getValue()};
 
-        const res = await fetch('/interpreter', {
+        const res = await fetch('/api/interpreter', {
             method: 'POST',
             body: JSON.stringify(reqBody),
             headers: {
