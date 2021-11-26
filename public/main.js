@@ -61,7 +61,7 @@ const InputOutput = () => {
         }
     };
 
-    return e('div', {id: 'inoutContainer'}, renderInput(onClick), renderOutput(isErrorFoundState, outputState));
+    return e('main', {id: 'inoutContainer'}, renderInput(onClick), renderOutput(isErrorFoundState, outputState));
 };
 
 const navbar = () => {
@@ -76,10 +76,6 @@ const navbar = () => {
     const version = e('span', {id: 'version'}, 'v1.0.5');
     const title = e('h1', { id: 'title'}, 'Junior interpreter online ', version);
 
-    return e('div', {id: 'navbar'}, title, docsLink);
-};
-
-const footer = () => {
     const githubImg = e('img', { id: 'githubLogo', alt: 'github repository link', src: './assets/github.png' }, null);
     const githubLink = e('a', {
         id: 'githubLink',
@@ -88,10 +84,10 @@ const footer = () => {
         rel: 'nofollow noreferrer'
     }, githubImg);
 
-    return e('div', { id: 'footer' }, githubLink);
+    return e('header', {id: 'navbar'}, title, githubLink, docsLink);
 };
 
-const MainContainer = () => e('div', {id: 'outerContainer'}, navbar(), e(InputOutput, {}, null), footer());
+const MainContainer = () => e('div', {id: 'outerContainer'}, navbar(), e(InputOutput, {}, null));
 
 const domContainer = document.querySelector('#app');
 ReactDOM.render(e(MainContainer), domContainer);

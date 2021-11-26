@@ -4,7 +4,9 @@
     font-weight: 400;
     font-display: swap;
     src: local('Rakkas'), url(assets/fonts/Rakkas.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+        U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212,
+        U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
@@ -12,8 +14,11 @@
     font-style: normal;
     font-weight: 100;
     font-display: swap;
-    src: local('Fira Code Light'), url(assets/fonts/FiraCode-Light.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    src: local('Fira Code Light'),
+        url(assets/fonts/FiraCode-Light.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+        U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212,
+        U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
@@ -21,8 +26,11 @@
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: local('Fira Code'), url(assets/fonts/FiraCode-Regular.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    src: local('Fira Code'),
+        url(assets/fonts/FiraCode-Regular.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+        U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212,
+        U+2215, U+FEFF, U+FFFD;
 }
 
 html,
@@ -51,7 +59,7 @@ body {
 #outerContainer {
     min-height: 100%;
     width: 100%;
-    background-color: #508D73;
+    background-color: #508d73;
     color: white;
     display: flex;
     flex-direction: column;
@@ -121,7 +129,7 @@ body {
 #inoutContainer {
     min-height: 100%;
     width: 100%;
-    background-color: #30473D;
+    background-color: #30473d;
     color: white;
     display: flex;
     flex: 15;
@@ -138,7 +146,6 @@ body {
     box-sizing: border-box;
 }
 
-
 /* input */
 
 #inputContainer {
@@ -153,7 +160,7 @@ body {
     text-align: left;
     width: 100%;
     min-height: 400px;
-    background-color: #051F14;
+    background-color: #051f14;
     font-family: 'Fira Code', monospace;
 }
 
@@ -166,7 +173,6 @@ body {
     font-style: fantasy;
     border-color: rgb(201, 140, 140);
 }
-
 
 /* output */
 
@@ -185,12 +191,11 @@ body {
     width: 100%;
     min-height: 400px;
     min-width: 200px;
-    background-color: #051F14;
+    background-color: #051f14;
     font-family: 'Fira Code', monospace;
     overflow: scroll;
     overflow: -moz-scrollbars-none;
 }
-
 
 /* remove scrollbar space / background: transparent; / optional: just make scrollbar invisible */
 
@@ -198,17 +203,11 @@ body {
     width: 0 !important;
 }
 
-
-/* disabled github logo
-#footer {
-    margin: 0 auto;
-}
-
 #githubLink {
     display: inline-block;
+    margin-right: 10px;
 }
 
 #githubLogo {
-    height: 2.2rem;
+    height: 1.8rem;
 }
-*/
