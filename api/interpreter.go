@@ -6,7 +6,6 @@ import (
 	"log"
 	"net/http"
 	"strings"
-	"time"
 
 	"github.com/radlinskii/interpreter/evaluator"
 	"github.com/radlinskii/interpreter/lexer"
