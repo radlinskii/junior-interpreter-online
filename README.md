@@ -1,4 +1,4 @@
-# Junior interpreter online
+# Junior interpreter online [![Go build](https://github.com/radlinskii/junior-interpreter-online/actions/workflows/Go%20build.yml/badge.svg)](https://github.com/radlinskii/junior-interpreter-online/actions/workflows/Go%20build.yml)
 
 [online Junior programming language playground](https://junior-interpreter-online.vercel.app)
 
